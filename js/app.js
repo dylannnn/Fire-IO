@@ -9,4 +9,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/home',
             templateUrl: 'templates/content/home.html'
         })
+        .state('post', {
+            url: '/post/:id',
+            templateUrl: 'templates/content/post.html'
+        })
 });

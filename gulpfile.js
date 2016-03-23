@@ -10,6 +10,8 @@ var config = {
 			'./js/controllers/*/*.js',
 			'./js/directives/*.js',
 			'./js/directives/*/*.js',
+			'./js/filters/*.js',
+			'./js/directives/*/*.js',
 			'./css/*.css',
 			'./templates/*.html',
 			'./templates/admin/*.html',
