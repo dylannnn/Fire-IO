@@ -1,13 +1,12 @@
-var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'firebase', 'textAngular']);
+var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'firebase', 'textAngular', 'toaster', 'ngAnimate']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
+    $urlRouterProvider.otherwise('/home');
+
     $stateProvider
         .state('home', {
-            url: '/',
-            templateUrl: 'templates/content/index.html'
+            url: '/home',
+            templateUrl: 'templates/content/home.html'
         })
-
-    $urlRouterProvider.otherwise('/');
-
 });
