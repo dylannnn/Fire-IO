@@ -9,7 +9,7 @@ app.directive('fireioSite', function() {
                 toaster.pop({
                     type: 'error',
                     title: 'Error',
-                    body: 'Failed to grab data from firebase',
+                    body: 'Failed to grab site data from firebase',
                     timeout: 4000
                 });
             });
