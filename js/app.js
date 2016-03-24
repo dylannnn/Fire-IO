@@ -13,4 +13,24 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/post/:id',
             templateUrl: 'templates/content/post.html'
         })
+
+        // Admin
+        .state('login', {
+            url: '/login',
+            templateUrl: 'templates/admin/login.html',
+            controller: 'LoginController'
+        })
+        .state('admin', {
+            url: '/admin',
+            templateUrl: 'templates/admin/home.html'
+        })
+});
+
+app.run(function($rootScope, $state) {
+    $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
+        if(toState == 'admin' && !$rootScope.admin) {
+            e.preventDefault();
+            return $state.go('login')
+        }
+    });
 });
