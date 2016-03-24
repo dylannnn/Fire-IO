@@ -2,12 +2,12 @@ var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'firebase', 'textA
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/posts/0');
 
     $stateProvider
-        .state('home', {
-            url: '/home',
-            templateUrl: 'templates/content/home.html'
+        .state('posts', {
+            url: '/posts/:page',
+            templateUrl: 'templates/content/posts.html'
         })
         .state('post', {
             url: '/post/:id',
