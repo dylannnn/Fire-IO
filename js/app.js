@@ -2,11 +2,17 @@ var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'firebase', 'textA
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/posts/0');
+    $urlRouterProvider.otherwise('/posts');
 
     $stateProvider
         .state('posts', {
             url: '/posts/:page',
+            params: {
+                page: {
+                    value: null,
+                    squash: true
+                }
+            },
             templateUrl: 'templates/content/posts.html'
         })
         .state('post', {
@@ -24,13 +30,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/admin',
             templateUrl: 'templates/admin/home.html'
         })
+        .state('create', {
+            url: '/create',
+            templateUrl: 'templates/admin/create.html'
+        })
 });
 
 app.run(function($rootScope, $state) {
     $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
-        if(toState == 'admin' && !$rootScope.admin) {
-            e.preventDefault();
-            return $state.go('login')
-        }
+        //if(toState.name == 'admin' && !$rootScope.admin) {
+        //    e.preventDefault();
+        //    return $state.go('login')
+        //}
     });
 });

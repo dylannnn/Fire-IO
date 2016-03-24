@@ -8,6 +8,7 @@ app.directive('fireioPosts', function() {
                 $stateParams.page = 0;
 
             PostsFactory.getPosts($stateParams.page, function(err, posts) {
+                console.log(posts);
                 if(err) return toaster.pop({
                     type: 'error',
                     title: 'Error',

@@ -55,6 +55,7 @@
             <script src="js/directives/firebase/site.js"></script>
             <script src="js/directives/firebase/posts.js"></script>
             <script src="js/directives/firebase/post.js"></script>
+            <script src="js/directives/firebase/newpost.js"></script>
     </head>
     <body>
 
@@ -74,9 +75,20 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li>
+                    <ul class="nav navbar-nav navbar-left">
+                        <li ui-sref-active="active">
                             <a ui-sref="home">Home</a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="posts">Posts</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" ng-show="admin">
+                        <li ui-sref-active="active">
+                            <a ui-sref="admin">Admin</a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="create">Create</a>
                         </li>
                     </ul>
                 </div>
