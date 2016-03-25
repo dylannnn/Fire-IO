@@ -34,6 +34,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/create',
             templateUrl: 'templates/admin/create.html'
         })
+        .state('edit', {
+            url: '/edit/:id',
+            templateUrl: 'templates/admin/edit.html'
+        })
 });
 
 app.run(function($rootScope, $state) {

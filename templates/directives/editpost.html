@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="row">
+        <h3>Edit post</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label for="title">
+                Title:
+            </label>
+            <input type="text" class="form-control" ng-model="post.title">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label for="title">
+                Description:
+            </label>
+            <input type="text" class="form-control" ng-model="post.description">
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-10">
+            <text-angular ng-model="post.body"></text-angular>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-success form-control" ng-click="update()">
+                Update post
+            </button>
+        </div>
+    </div>
+</div>

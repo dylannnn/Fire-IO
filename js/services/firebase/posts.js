@@ -10,6 +10,22 @@ app.factory('PostsFactory', function($firebaseObject, $firebaseArray) {
                 fn(err);
             });
         },
+        updatePost: function(id, data, fn) {
+            var post = $firebaseObject(new Firebase(config.fb + '/content/posts/' + id));
+            post.$loaded().then(function() {
+                if(post.title == undefined) return fn('This post has been deleted, or is un-accessable.');
+
+                post.title = data.title;
+                post.body = data.body;
+                post.description = data.description;
+                post.updated = Date.now();
+                post.$save().then(function() {
+                    fn();
+                });
+            }).catch(function(err) {
+                fn(err);
+            })
+        },
         getPosts: function(page, fn) {
             var postsStart = page * config.posts.loadPerPage;
             var posts = $firebaseArray(new Firebase(config.fb + '/content/posts').orderByChild('created').limitToLast(config.posts.loadPerPage).endAt(9999999999999999)).$loaded().then(function(posts) {
@@ -19,10 +35,13 @@ app.factory('PostsFactory', function($firebaseObject, $firebaseArray) {
             });
         },
         getPost: function(id, fn) {
-            /*
-                TODO: Check cache and other shit
-            */
-            fn(null, $firebaseObject(new Firebase(config.fb + '/content/posts/' + id)));
+            var post = new $firebaseObject(new Firebase(config.fb + '/content/posts/' + id));
+            post.$loaded().then(function() {
+                if(post.title == undefined) return fn('This post has been deleted, or is un-accessable');
+                fn(null, post);
+            }).catch(function(err) {
+                fn(err);
+            })
         }
     }
 });

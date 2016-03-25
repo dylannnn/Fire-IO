@@ -3,7 +3,7 @@ app.directive('fireioPost', function() {
         restrict: 'E',
         scope: { html: '@' },
         templateUrl: 'templates/directives/post.html',
-        controller: function($scope, $stateParams, $sce, PostsFactory, toaster) {
+        controller: function($scope, $rootScope, $stateParams, $sce, PostsFactory, toaster) {
             PostsFactory.getPost($stateParams.id, function(err, post) {
                 if(err) return toaster.pop({
                     type: 'error',
@@ -20,6 +20,8 @@ app.directive('fireioPost', function() {
                     });
                 });
             });
+
+            $scope.admin = $rootScope.admin;
             $scope.post = {
                 title: 'Loading',
                 body: 'Please wait...'
