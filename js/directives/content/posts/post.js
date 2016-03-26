@@ -2,7 +2,7 @@ app.directive('fireioPost', function() {
     return {
         restrict: 'E',
         scope: { html: '@' },
-        templateUrl: 'templates/directives/post.html',
+        templateUrl: 'templates/directives/content/posts/post.html',
         controller: function($scope, $rootScope, $stateParams, $sce, PostsFactory, toaster) {
             PostsFactory.getPost($stateParams.id, function(err, post) {
                 if(err) return toaster.pop({

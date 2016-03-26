@@ -29,7 +29,8 @@ gulp.task('default', function() {
     browserSync.init({
         server: {
             baseDir: "./"
-        }
+        },
+		notify: false
     });
 	
 	gulp.watch(config.browsersync.watch).on('change', browserSync.reload);

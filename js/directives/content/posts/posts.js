@@ -2,7 +2,7 @@ app.directive('fireioPosts', function() {
     return {
         restrict: 'E',
         scope: { html: '@' },
-        templateUrl: 'templates/directives/posts.html',
+        templateUrl: 'templates/directives/content/posts/posts.html',
         controller: function($scope, $state, $stateParams, PostsFactory, toaster) {
             if($stateParams.page == undefined)
                 $stateParams.page = 0;

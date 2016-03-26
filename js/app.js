@@ -30,18 +30,23 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/admin',
             templateUrl: 'templates/admin/home.html'
         })
-        .state('create', {
-            url: '/create',
-            templateUrl: 'templates/admin/create.html'
+        .state('addpost', {
+            url: '/add-post',
+            templateUrl: 'templates/admin/posts/add-post.html'
         })
-        .state('edit', {
-            url: '/edit/:id',
-            templateUrl: 'templates/admin/edit.html'
+        .state('editpost', {
+            url: '/edit-post/:id',
+            templateUrl: 'templates/admin/posts/edit-post.html'
         })
 });
 
 app.run(function($rootScope, $state) {
     $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
+        var state = toState.name;
+        if(state == 'admin' || state == 'addpost' || state == 'editpost')
+            $rootScope.inPanel = true;
+        else
+            $rootScope.inPanel = false;
         //if(toState.name == 'admin' && !$rootScope.admin) {
         //    e.preventDefault();
         //    return $state.go('login')

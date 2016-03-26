@@ -2,7 +2,7 @@ app.directive('fireioEditPost', function() {
     return {
         restrict: 'E',
         scope: { html: '@' },
-        templateUrl: 'templates/directives/editpost.html',
+        templateUrl: 'templates/directives/admin/posts/edit-post.html',
         controller: function($scope, $state, $stateParams, PostsFactory, toaster) {
             PostsFactory.getPost($stateParams.id, function(err, post) {
                 if(err) {

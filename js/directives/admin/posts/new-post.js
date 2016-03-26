@@ -2,7 +2,7 @@ app.directive('fireioNewPost', function() {
     return {
         restrict: 'E',
         scope: { html: '@' },
-        templateUrl: 'templates/directives/newpost.html',
+        templateUrl: 'templates/directives/admin/posts/new-post.html',
         controller: function($scope, PostsFactory, toaster) {
             $scope.create = function() {
                 if($scope.post.title == undefined || $scope.post.description == undefined || $scope.post.body == undefined) return toaster.pop({
