@@ -38,12 +38,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/edit-post/:id',
             templateUrl: 'templates/admin/posts/edit-post.html'
         })
+        .state('myposts', {
+            url: '/my-posts',
+            templateUrl: 'templates/admin/posts/my-posts.html'
+        })
 });
 
 app.run(function($rootScope, $state) {
     $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
         var state = toState.name;
-        if(state == 'admin' || state == 'addpost' || state == 'editpost')
+        if(state == 'admin' || state == 'addpost' || state == 'editpost' || state == 'myposts')
             $rootScope.inPanel = true;
         else
             $rootScope.inPanel = false;

@@ -35,13 +35,20 @@ app.factory('PostsFactory', function($firebaseObject, $firebaseArray) {
             });
         },
         getPost: function(id, fn) {
-            var post = new $firebaseObject(new Firebase(config.fb + '/content/posts/' + id));
+            var post = $firebaseObject(new Firebase(config.fb + '/content/posts/' + id));
             post.$loaded().then(function() {
                 if(post.title == undefined) return fn('This post has been deleted, or is un-accessable');
                 fn(null, post);
             }).catch(function(err) {
                 fn(err);
             })
+        },
+        deletePost: function(id, fn) {
+            $firebaseObject(new Firebase(config.fb + '/content/posts/' + id)).$remove().then(function() {
+                fn(null);
+            }).catch(function(err) {
+                fn(err);
+            });
         }
     }
 });
