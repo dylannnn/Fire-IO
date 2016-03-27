@@ -3,7 +3,7 @@ app.directive('fireioAddPage', function() {
         restrict: 'E',
         scope: { html: '@' },
         templateUrl: 'templates/directives/admin/pages/add-page.html',
-        controller: function($scope, PagesFactory, toaster) {
+        controller: function($scope, $state, PagesFactory, toaster) {
             $scope.create = function() {
                 if($scope.page.location == undefined || $scope.page.content == undefined) return toaster.pop({
                     type: 'error',
@@ -18,6 +18,15 @@ app.directive('fireioAddPage', function() {
                     body: 'The location cannot have slashed',
                     timeout: 4000
                 });
+
+                var states = $state.get();
+                for(var x = 0; x < states.length; x++)
+                    if(states[x].url == $scope.page.location.toLowerCase() || states[x].name == $scope.page.location.toLowerCase()) return toaster.pop({
+                        type: 'error',
+                        title: 'Error',
+                        body: 'Fire IO uses this location I\'m afraid, Choose another',
+                        timeout: 4000
+                    });
 
                 PagesFactory.createPage({
                     location: $scope.page.location,

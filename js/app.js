@@ -22,6 +22,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/admin',
             templateUrl: 'templates/admin/home.html'
         })
+
+            // General
+            .state('editnavigation', {
+                url: '/edit-navigation',
+                templateUrl: 'templates/admin/navigation/edit-nav.html'
+            })
+
             // Posts
             .state('addpost', {
                 url: '/add-post',
@@ -62,7 +69,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 app.run(function($rootScope, $state) {
     $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
         var state = toState.name;
-        if(state == 'admin' || state == 'addpost' || state == 'editpost' || state == 'myposts' || state == 'addpage' || state == 'mypages')
+        if(state == 'admin' || state == 'addpost' || state == 'editpost' || state == 'myposts' || state == 'addpage' || state == 'mypages' || state == 'editnavigation')
             $rootScope.inPanel = true;
         else
             $rootScope.inPanel = false;
