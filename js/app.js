@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'firebase', 'textAngular', 'ngSanitize', 'toaster', 'ngAnimate']);
+var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'firebase', 'infinite-scroll', 'textAngular', 'ngSanitize', 'toaster', 'ngAnimate']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -6,13 +6,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('posts', {
-            url: '/posts/:page',
-            params: {
-                page: {
-                    value: null,
-                    squash: true
-                }
-            },
+            url: '/posts',
             templateUrl: 'templates/content/posts.html'
         })
         .state('post', {

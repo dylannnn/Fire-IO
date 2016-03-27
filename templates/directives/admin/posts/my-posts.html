@@ -1,22 +1,24 @@
 <div class="row">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <td>Title</td>
-                <td>Created</td>
-                <td>Updated</td>
-                <td>Edit</td>
-                <td>Delete</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="post in posts">
-                <td>{{ post.title }}</td>
-                <td>{{ post.created | date : 'short' }}</td>
-                <td>{{ post.updated | date : 'short' }}</td>
-                <td><a href="#/edit-post/{{ post.$id }}">edit</a></td>
-                <td><a href ng-click="delete($index)">delete</a></td>
-            </tr>
-        </tbody>
-    </table>
+    <div infinite-scroll="posts.scroll.next(10)" infinite-scroll-distance="1">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Title</td>
+                    <td>Created</td>
+                    <td>Updated</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="post in posts">
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.created | date : 'short' }}</td>
+                    <td>{{ post.updated | date : 'short' }}</td>
+                    <td><a href="#/edit-post/{{ post.$id }}">edit</a></td>
+                    <td><a href ng-click="delete($index)">delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
