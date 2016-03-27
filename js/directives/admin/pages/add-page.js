@@ -19,7 +19,11 @@ app.directive('fireioAddPage', function() {
                     timeout: 4000
                 });
 
-                PagesFactory.createPage($scope.page, function(err) {
+                PagesFactory.createPage({
+                    location: $scope.page.location,
+                    content: $scope.page.content,
+                    timestamp: -Date.now()
+                }, function(err) {
                     if(err) return toaster.pop({
                         type: 'error',
                         title: 'Error',

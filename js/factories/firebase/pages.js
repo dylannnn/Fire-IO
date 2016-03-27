@@ -17,6 +17,7 @@ app.factory('PagesFactory', function($firebaseObject, $firebaseArray) {
             var page = $firebaseObject(new Firebase(config.fb + '/content/pages/' + data.location.toLowerCase()));
             page.$loaded().then(function() {
                 page.content = data.content;
+                page.timestamp = data.timestamp;
                 page.$save().then(function() {
                     fn();
                 })
