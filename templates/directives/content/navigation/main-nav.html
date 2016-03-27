@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
                 <li ng-repeat="nav in navigations" ui-sref-active="active">
-                    <a ui-sref="{{ nav.$id }}">{{ nav.title }}</a>
+                    <a href="#/{{ nav.$id }}">{{ nav.title }}</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right" ng-show="admin">
