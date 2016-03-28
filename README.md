@@ -1,6 +1,8 @@
 # Fire IO
 Fire IO is a themeable real-time CMS that can be hosted in a static enviornment (such as GitHub pages). This means you can edit your website all within your GitHub page url (without pushing or manually editing files) for free (Unless you go over the free plan for Firebase). This is the current [milestone](https://github.com/Stackoverload/Fire-IO/milestones/v0.1%20release)
 
+Oh and did I mention you can host it on a CDN? Yup. - [Example CDN using Firebase](https://fireio.firebaseapp.com/#/home)
+
 #Features:
 ------
 <ul>
