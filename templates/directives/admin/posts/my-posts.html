@@ -15,8 +15,8 @@
                     <td>{{ post.title }}</td>
                     <td>{{ post.created | date : 'short' }}</td>
                     <td>{{ post.updated | date : 'short' }}</td>
-                    <td><a href="#/edit-post/{{ post.$id }}">edit</a></td>
-                    <td><a href ng-click="delete($index)">delete</a></td>
+                    <td><a class="btn btn-success form-control" href="#/edit-post/{{ post.$id }}">edit</a></td>
+                    <td><button class="btn btn-danger form-control" ng-click="delete($index)">Delete</button></td>
                 </tr>
             </tbody>
         </table>

@@ -11,8 +11,8 @@
             <tbody>
                 <tr ng-repeat="page in pages">
                     <td>{{ page.$id }}</td>
-                    <td><a href="#/edit-page/{{ page.$id }}">coming soon</a></td>
-                    <td><a href ng-click="delete($index)">delete</a></td>
+                    <td><a class="btn btn-success form-control" href="#/edit-page/{{ page.$id }}">coming soon</a></td>
+                    <td><button class="btn btn-danger form-control" ng-click="delete($index)">Delete</button></td>
                 </tr>
             </tbody>
         </table>
