@@ -10,6 +10,14 @@
                 Title:
             </label>
             <input type="text" class="form-control" ng-model="newNav.title">
+            <label for="title">
+                Views:
+            </label>
+            <select class="form-control" ng-model="newNav.views">
+                <option value="website">Website</option>
+                <option value="mobile">Mobile</option>
+                <option value="both">Both</option>
+            </select>
         </div>
     </div>
     <br>
@@ -29,6 +37,7 @@
                 <tr>
                     <td>Location</td>
                     <td>Title</td>
+                    <td>Views</td>
                     <td>Update</td>
                     <td>Delete</td>
                 </tr>
@@ -37,6 +46,13 @@
                 <tr ng-repeat="nav in navigations">
                     <td contenteditable ng-model="navigations[$index].newLocation" ng-init="navigations[$index].newLocation = nav.$id"></td>
                     <td contenteditable ng-model="navigations[$index].title"></td>
+                    <td>
+                        <select class="form-control" ng-model="navigations[$index].views">
+                            <option value="website">Website</option>
+                            <option value="mobile">Mobile</option>
+                            <option value="both">Both</option>
+                        </select>
+                    </td>
                     <td><button class="btn btn-success form-control" ng-click="update($index)">Update</button></td>
                     <td><button class="btn btn-danger form-control" ng-click="delete($index)">Delete</button></td>
                 </tr>

@@ -5,6 +5,13 @@ app.directive('fireioEditNavigation', function() {
         templateUrl: 'templates/directives/admin/navigation/edit-nav.html',
         controller: function($scope, NavFactory, $firebaseArray, toaster) {
             $scope.add = function() {
+                if($scope.newNav.title == undefined || $scope.newNav.location == undefined || $scope.newNav.views == undefined) return toaster.pop({
+                    type: 'error',
+                    title: 'Error',
+                    body: 'All fields are required',
+                    timeout: 4000
+                });
+
                 NavFactory.addNavigation($scope.newNav, function(err) {
                     if(err) return toaster.pop({
                         type: 'error',

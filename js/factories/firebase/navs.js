@@ -5,6 +5,9 @@ app.factory('NavFactory', function($firebaseObject, $firebaseArray) {
         getNavigations(fn) {
             var navs = $firebaseArray(new Firebase(config.fb + '/navigation'));
             navs.$loaded().then(function() {
+                for(var x = 0; x < navs.length; x++)
+
+
                 fn(null, navs);
             }).catch(function(err) {
                 fn(err);
@@ -15,6 +18,7 @@ app.factory('NavFactory', function($firebaseObject, $firebaseArray) {
                 var nav = $firebaseObject(new Firebase(config.fb + '/navigation/' + location));
                 nav.$loaded().then(function() {
                     nav.title = data.title;
+                    nav.views = data.views;
                     nav.$save().then(function() {
                         fn();
                     });
@@ -26,6 +30,7 @@ app.factory('NavFactory', function($firebaseObject, $firebaseArray) {
                     var nav = $firebaseObject(new Firebase(config.fb + '/navigation/' + data.newLocation));
                     nav.$loaded().then(function() {
                         nav.title = data.title;
+                        nav.views = data.views;
                         nav.$save().then(function() {
                             fn();
                         });
@@ -39,6 +44,7 @@ app.factory('NavFactory', function($firebaseObject, $firebaseArray) {
             var nav = $firebaseObject(new Firebase(config.fb + '/navigation/' + data.location));
             nav.$loaded().then(function() {
                 nav.title = data.title;
+                nav.view = data.view;
                 nav.$save().then(function() {
                     fn();
                 });
