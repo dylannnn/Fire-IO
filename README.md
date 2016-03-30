@@ -20,6 +20,14 @@ Note, this project isn't in release yet so there's no security settings yet.
 <li>Commenting system</li>
 </ul>
 
+#Configuring:
+------
+```
+This project isn't ready for release, there is not any security rules nor is there a valid admin account.
+Please, please, PLEASE do not use this project yet. But if you'd like to configure it for testing, simply
+visit js/config.js and edit the property 'fb' to be your firebase url.
+```
+
 #Styling:
 ------
 ```
