@@ -11,6 +11,7 @@ Note, this project isn't in release yet so there's no security settings yet.
 <li>Custom navigation</li>
 <li>Custom pages</li>
 <li>Blog posting</li>
+<li>[Mobile client](https://github.com/Stackoverload/Fire-IO-Mobile)</li>
 </ul>
 
 #Coming soon:
