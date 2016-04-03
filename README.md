@@ -5,6 +5,10 @@ Fire IO is a themeable real-time CMS that can be hosted in a static enviornment 
 
 Note, this project isn't in release yet so there's no security settings yet.
 
+#Update:
+------
+I've started a full re-work (v0.2) which can be found [here](https://github.com/Stackoverload/Fire-IO/tree/v0.2). A demo can be found [here](https://fireio-v1.firebaseapp.com/#/posts)
+
 #Features:
 ------
 <ul>
