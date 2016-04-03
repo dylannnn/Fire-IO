@@ -1,0 +1,31 @@
+{
+  "name": "Fire IO",
+  "authors": [
+    "stackoverload <Stackoverload.cross@Gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "ng-material-floating-button": "ng-mfb#^0.6.2",
+    "angularfire": "^1.2.0",
+    "angular-ui-router": "^0.2.18",
+    "textAngular": "^1.5.0",
+    "angular-bootstrap": "^1.2.5",
+    "bootstrap": "^3.3.6",
+    "AngularJS-Toaster": "^1.2.0",
+    "angular-ui-router-anim-in-out": "^1.0.2",
+    "readremaining": "ReadRemaining.js#^0.1.0",
+    "angular-sweetalert": "angular-h-sweetalert#^1.4.7"
+  }
+}

@@ -1,0 +1,14 @@
+<div class="main">
+    <section class="grid">
+        <a ng-repeat="post in posts" href="#/post/{{ post.key }}" class="grid_item" href="#">
+    		<h2 class="title title-preview">{{ post.title }}</h2>
+    		<div class="loader"></div>
+    		<span class="category">{{ post.author }}</span>
+    		<div class="meta meta-preview">
+    			<img class="meta_avatar" src="https://avatars0.githubusercontent.com/u/5674473?v=3&s=460" alt="{{ post.author }}"/>
+    			<span class="meta_date"><i class="fa fa-calendar-o"></i> {{ post.created | date : 'mediumDate' }} </span>
+    			<span class="meta_reading-time"><i class="fa fa-clock-o"></i> <span fireio-read-time="{{ post.body }}"> </span> min read </span>
+    		</div>
+    	</a>
+    </section>
+</div>

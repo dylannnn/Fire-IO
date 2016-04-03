@@ -1,0 +1,50 @@
+<div class="row">
+    <section class="content content-show">
+        <div class="scroll-wrap">
+            <article class="content_item content_item-show">
+                <div class="row">
+                    <span class="category category-full">Updated at: {{ post.updated | date : 'medium' }}</span>
+                    <h2 class="title title-full" editable ng-model="post.title">{{ post.title }}</h2>
+                    <div class="meta meta-full">
+                        <img class="meta_avatar" src="https://avatars0.githubusercontent.com/u/5674473?v=3&s=460" alt="{{ post.author }}" />
+                        <span class="meta_author">{{ post.author }}</span>
+                        <span class="meta_date"><i class="fa fa-calendar-o"></i> {{ post.created | date : 'mediumDate' }} </span>
+                        <span class="meta_reading-time"><i class="fa fa-clock-o"></i> <span fireio-read-time="{{post.body}}"></span> min read </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-offset-2">
+                        <br>
+                        <span ng-show="admin">
+                            <div class="row">
+                                <text-angular ng-model="post.body"></text-angular>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <button class="btn btn-success form-control" ng-click="save()">
+                                        <i class="fa fa-floppy-o"></i> &nbsp;Save post
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <button class="btn btn-danger form-control" ng-click="delete()">
+                                        <i class="fa fa-trash"></i> &nbsp;Delete post
+                                    </button>
+                                </div>
+                            </div>
+                        </span>
+                        <span ng-show="!admin" ta-bind ng-model="post.body">
+                        </span>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <button class="close-button close-button-show" ng-click="back()"><i class="fa fa-arrow-right"></i><span>Close</span></button>
+    </section>
+</div>
+<style>
+    body {
+        overflow: hidden;
+    }
+</style>
