@@ -16,6 +16,11 @@ app.config(function(FirebaseUrl, $firebaseRefProvider, $stateProvider, $urlRoute
            url: '/post/:key',
            templateUrl: 'templates/content/post.html'
        })
+       .state('add-post', {
+           url: '/add-post',
+           templateUrl: 'templates/content/add-post.html'
+       })
+       
        .state('login', {
            url: '/login',
            templateUrl: 'templates/content/login.html',

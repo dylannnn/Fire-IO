@@ -1,0 +1,11 @@
+<div class="sidebar">
+    <h1>
+        {{ navbar.title }}
+    </h1>
+    <br>
+    <div class="related">
+        <a ng-repeat="button in navbar.buttons" href="#/{{ button.location }}">
+            {{ button.text }}
+        </a>
+    </div>
+</div>

@@ -62,32 +62,28 @@
 
         <!-- directives -->
             <!-- util -->
-            <script src="js/directives/util/editable.js"></script>
+            <script src="js/directives/util/contenteditable.js"></script>
             <script src="js/directives/util/readtime.js"></script>
+
+            <!-- shared -->
+            <script src="js/directives/shared/navbar.js"></script>
 
             <!-- content -->
             <script src="js/directives/content/posts.js"></script>
             <script src="js/directives/content/post.js"></script>
+            <script src="js/directives/content/add-post.js"></script>
 
         <!-- factories -->
             <!-- content -->
             <script src="js/factories/content/posts.js"></script>
     </head>
-    <body ng-app="app" ng-controller="MainController as main">
+    <body ng-app="app" ng-controller="MainController">
 
-		<div class="sidebar">
-			<h1><span>Animated<span> Grid Layout</h1>
-            <br>
-			<div class="related">
-				<a href>Book Preview</a>
-                <a href>Book Preview</a>
-				<a href>Book Preview</a>
-			</div>
-		</div>
+		<fireio-navbar></fireio-navbar>
 
-        <span ng-show="admin">
+        <span ng-show="$root.admin">
             <mfb-menu bgcolor="#3CA2C8" position="br" effect="zoomin" active-icon="fa fa-times-circle" resting-icon="fa fa-bars" toggling-method="click" style="z-index: 9999;">
-                <button mfb-button bgcolor="#65E565" icon="fa fa-bars" label="menu item"></button>
+                <button mfb-button bgcolor="#65E565" icon="fa fa-pencil" label="New post" ui-sref="add-post"></button>
                 <button mfb-button bgcolor="orange" icon="fa fa-bars" label="menu item"></button>
                 <button mfb-button icon="fa fa-bars" label="menu item"></button>
             </mfb-menu>

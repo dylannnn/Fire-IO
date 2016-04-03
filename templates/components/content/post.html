@@ -4,7 +4,12 @@
             <article class="content_item content_item-show">
                 <div class="row">
                     <span class="category category-full">Updated at: {{ post.updated | date : 'medium' }}</span>
-                    <h2 class="title title-full" editable ng-model="post.title">{{ post.title }}</h2>
+                    <h2 class="title title-full" >
+                        <span ng-show="!$root.admin">
+                            {{ post.title }}
+                        </span>
+                        <span ng-show="$root.admin" contenteditable ng-model="post.title"></span>
+                    </h2>
                     <div class="meta meta-full">
                         <img class="meta_avatar" src="https://avatars0.githubusercontent.com/u/5674473?v=3&s=460" alt="{{ post.author }}" />
                         <span class="meta_author">{{ post.author }}</span>
@@ -15,7 +20,7 @@
                 <div class="row">
                     <div class="col-md-offset-2">
                         <br>
-                        <span ng-show="admin">
+                        <span ng-show="$root.admin">
                             <div class="row">
                                 <text-angular ng-model="post.body"></text-angular>
                             </div>
@@ -34,7 +39,7 @@
                                 </div>
                             </div>
                         </span>
-                        <span ng-show="!admin" ta-bind ng-model="post.body">
+                        <span ng-show="!$root.admin" ta-bind ng-model="post.body">
                         </span>
                     </div>
                 </div>

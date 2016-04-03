@@ -6,8 +6,6 @@ app.directive('fireioPost', function() {
         templateUrl: 'templates/components/content/post.html',
         controllerAs: 'post',
         controller: function($scope, $rootScope, $state, $stateParams, PostsFactory, toaster, sweet) {
-            $scope.admin = $rootScope.admin;
-
             $scope.back = function() {
                 $state.go('posts');
             };
@@ -15,7 +13,6 @@ app.directive('fireioPost', function() {
             $scope.save = function() {
                 PostsFactory.updatePost($stateParams.key, $scope.post)
                     .then(function() {
-                        console.log('then');
                         toaster.pop({
                             type: 'success',
                             title: 'Success',

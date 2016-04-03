@@ -1,4 +1,4 @@
-app.factory('PostsFactory', function($http, $q, FirebaseUrl, $firebaseRef, $firebaseObject) {
+app.factory('PostsFactory', function($http, $rootScope, $q, FirebaseUrl, $firebaseRef, $firebaseObject, $firebaseArray) {
     var data = {
         pages: [],
         posts: []
@@ -87,6 +87,25 @@ app.factory('PostsFactory', function($http, $q, FirebaseUrl, $firebaseRef, $fire
                 .catch(function(err) {
                     deferred.reject(err);
                 });
+
+            return deferred.promise;
+        },
+        createPost: function(data) {
+            var deferred = $q.defer();
+
+            data.author = $rootScope.admin.displayName;
+            data.uid = $rootScope.admin.uid;
+            data.created = Date.now();
+            data.updated = Date.now();
+
+            $firebaseArray(new Firebase(FirebaseUrl + 'content/posts'))
+                .$add(data)
+                    .then(function(ref) {
+                        deferred.resolve(ref.key());
+                    })
+                    .catch(function(err) {
+                        deferred.reject(err);
+                    })
 
             return deferred.promise;
         },

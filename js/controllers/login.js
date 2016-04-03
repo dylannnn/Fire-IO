@@ -1,4 +1,4 @@
-app.controller('LoginController', function($scope, $state, $rootScope, FirebaseUrl, $firebaseAuth, toaster) {
+app.controller('LoginController', function($scope, $state, $rootScope, $http, FirebaseUrl, $firebaseAuth, toaster) {
     $scope.login = function() {
         if($scope.data.email == undefined || $scope.data.password == undefined) return toaster.pop({
             type: 'error',
@@ -10,13 +10,22 @@ app.controller('LoginController', function($scope, $state, $rootScope, FirebaseU
         $firebaseAuth(new Firebase(FirebaseUrl)).$authWithPassword($scope.data)
             .then(function(authData) {
                 $rootScope.admin = authData;
-                toaster.pop({
-                    type: 'success',
-                    title: 'Success',
-                    body: 'You are now logged in',
-                    timeout: 3000
-                });
-                $state.go('posts');
+
+                // TODO: Change to factory
+                $http.get(FirebaseUrl + 'users/' + authData.uid + '.json')
+                    .then(function(resp) {
+                        $rootScope.admin.displayName = resp.data.displayName;
+                        $rootScope.admin.permissions = resp.data.permissions;
+                        $rootScope.admin.picture = resp.data.picture;
+
+                        toaster.pop({
+                            type: 'success',
+                            title: 'Success',
+                            body: 'You are now logged in',
+                            timeout: 3000
+                        });
+                        $state.go('posts');
+                    })
             })
             .catch(function(err) {
                 toaster.pop({
